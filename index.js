@@ -12,7 +12,9 @@ app.use(bodyParser.json());
 //     console.log("Incoming request: ", req);
 //     console.log("\n\n\n\nres: ", res);
 //     next();
-// });
+// });  
+
+app.use(entryPath + 'dataset', require('./datasets/datasets.controller'));
 
 
 app.get(entryPath, async (req, res) => {
@@ -21,9 +23,7 @@ app.get(entryPath, async (req, res) => {
         .send('hello world');
 });
 
-
-
-// Invalid route
+// Invalid route - hit 'em with a 404
 app.get('*', async (req, res) => {
     return res
         .status(404)
@@ -31,7 +31,6 @@ app.get('*', async (req, res) => {
 });
 
 const port = process.env.DEP_ENV === 'production' ? (process.env.PORT || 80) : 3000;
-
 const server = app.listen(port, function () {
     console.log('Server started on port: ', port);
 })
