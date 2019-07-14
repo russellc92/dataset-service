@@ -1,0 +1,11 @@
+{
+  "name": "dataset-service",
+  "version": "1.0.0",
+  "description": "dataset microservice. For datasets and files within!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "russellc92",
+  "license": "ISC"
+}
