@@ -3,6 +3,9 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 
+const appVersion = process.env.VERSION || 'v1';
+const entryPath = '/dss/' + appVersion + "/";
+
 app.use(bodyParser.json());
 
 // app.use(async (req, res, next) => {
@@ -12,11 +15,13 @@ app.use(bodyParser.json());
 // });
 
 
-app.get('/', async (req, res) => {
+app.get(entryPath, async (req, res) => {
     return res
         .status(200)
         .send('hello world');
 });
+
+
 
 // Invalid route
 app.get('*', async (req, res) => {
