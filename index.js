@@ -15,6 +15,7 @@ app.use(bodyParser.json());
 // });  
 
 app.use(entryPath + 'dataset', require('./datasets/datasets.controller'));
+app.use(entryPath + 'file', require('./files/files.controller'));
 
 
 app.get(entryPath, async (req, res) => {
